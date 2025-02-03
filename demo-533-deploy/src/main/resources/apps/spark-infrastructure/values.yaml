@@ -39,7 +39,7 @@ aissemble-hive-metastore-service-chart:
       username: hive
       rootPassword: hive
       replicationPassword: hive
-      password: hive
+      password: $getConfigValue(groupName=spark;propertyName=metastore.db.password)
 
   configMap:
     configStore: enabled
@@ -49,7 +49,7 @@ aissemble-hive-metastore-service-chart:
           value: $getConfigValue(groupName=spark;propertyName=metastore.db.username)
           description: Username to use against metastore database
         - name: javax.jdo.option.ConnectionPassword
-          value: $getConfigValue(groupName=spark;propertyName=metastore.db.password)
+          value: hive
           description: Password to use against metastore database
         - name: metastore.warehouse.dir
           value: s3a://spark-infrastructure/warehouse
