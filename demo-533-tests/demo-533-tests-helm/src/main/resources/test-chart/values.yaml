@@ -1,0 +1,5 @@
+
+image:
+  name: demo-533-tests-docker
+  imagePullPolicy: IfNotPresent
+  dockerRepo: ""
